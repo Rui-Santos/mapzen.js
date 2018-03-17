@@ -2,7 +2,7 @@
 var L = require('leaflet');
 
 var MapControl = require('./components/mapControl');
-var Bug = require('mapzen-scarab');
+var Bug = require('tpp-scarab');
 var Locator = require('./components/locator');
 var Geocoder = require('./components/search');
 var Hash = require('./components/hash');
@@ -25,5 +25,5 @@ L.Mapzen = module.exports = {
 
 // Set Icon Path manually (Leaflet detects the path based on where Leaflet script is)
 // Leaflet 0.7 and < 1.0 handle image path differently
-if (parseFloat(L.version.substring(0, 3)) < 1.0) L.Icon.Default.imagePath = 'https://nextzen.org/js/images';
-else L.Icon.Default.prototype.options.imagePath = 'https://nextzen.org/js/images/';
+if (parseFloat(L.version.substring(0, 3)) < 1.0) L.Icon.Default.imagePath = 'https://tpp.pt/js/images';
+else L.Icon.Default.prototype.options.imagePath = 'https://tpp.pt/js/images/';

@@ -1,20 +1,20 @@
 {
-  "name": "mapzen.js",
+  "name": "tpp.js",
   "version": null,
-  "description": "Javascript SDK for Mapzen products",
-  "main": "src/js/mapzen.js",
+  "description": "Javascript SDK for TPP products",
+  "main": "src/js/tpp.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "karma start test/karma.conf.js --log-level debug --single-run",
     "lint": "eslint ./src/js/* ./test/*.js; exit 0;",
-    "build-style": "node-sass --output-style compressed -o dist/ src/scss/mapzen.scss; mkdir -p dist/images; cp -r node_modules/mapzen-scarab/src/images/* dist/images/; cp -r node_modules/leaflet/dist/images/* dist/images/; cp -r node_modules/leaflet-geocoder-mapzen/dist/images/* dist/images/",
-    "build-standalone-style": "node-sass --output-style compressed -o dist/ src/scss/mapzen.standalone.scss; mkdir -p dist/images; cp -r node_modules/mapzen-scarab/src/images/* dist/images/; cp -r node_modules/leaflet/dist/images/* dist/images/; cp -r node_modules/leaflet-geocoder-mapzen/dist/images/* dist/images/",
-    "build-dev-style": "node-sass --output-style compressed -o dist/ src/scss/mapzen.scss -w; cp -R node_modules/mapzen-scarab/src/images dist/images; cp -r node_modules/leaflet/dist/images/* dist/images/;",
-    "dev": "watchify  ./src/js/mapzen.js -o dist/mapzen.js -v;",
-    "build-standalone": "browserify -t [browserify-shim --global] ./src/js/mapzen.js --standalone Mapzen > dist/mapzen.standalone.js && browserify -t [browserify-shim --global] -t uglifyify ./src/js/mapzen.js --standalone  Mapzen | uglifyjs -c comparisons=false -m > dist/mapzen.standalone.min.js && npm run-script build-standalone-style",
-    "build": "browserify ./src/js/mapzen.js > dist/mapzen.js && browserify -t uglifyify ./src/js/mapzen.js | uglifyjs -c comparisons=false -m > dist/mapzen.min.js && npm run-script build-style"
+    "build-style": "node-sass --output-style compressed -o dist/ src/scss/tpp.scss; mkdir -p dist/images; cp -r node_modules/tpp-scarab/src/images/* dist/images/; cp -r node_modules/leaflet/dist/images/* dist/images/; cp -r node_modules/tpp-leaflet-geocoder/dist/images/* dist/images/",
+    "build-standalone-style": "node-sass --output-style compressed -o dist/ src/scss/tpp.standalone.scss; mkdir -p dist/images; cp -r node_modules/tpp-scarab/src/images/* dist/images/; cp -r node_modules/leaflet/dist/images/* dist/images/; cp -r node_modules/tpp-leaflet-geocoder/dist/images/* dist/images/",
+    "build-dev-style": "node-sass --output-style compressed -o dist/ src/scss/tpp.scss -w; cp -R node_modules/tpp-scarab/src/images dist/images; cp -r node_modules/leaflet/dist/images/* dist/images/;",
+    "dev": "watchify  ./src/js/tpp.js -o dist/tpp.js -v;",
+    "build-standalone": "browserify -t [browserify-shim --global] ./src/js/tpp.js --standalone TPP > dist/tpp.standalone.js && browserify -t [browserify-shim --global] -t uglifyify ./src/js/tpp.js --standalone  TPP | uglifyjs -c comparisons=false -m > dist/tpp.standalone.min.js && npm run-script build-standalone-style",
+    "build": "browserify ./src/js/tpp.js > dist/tpp.js && browserify -t uglifyify ./src/js/tpp.js | uglifyjs -c comparisons=false -m > dist/tpp.min.js && npm run-script build-style"
   },
   "browserify-shim": {
     "leaflet": "global:L"
@@ -22,12 +22,12 @@
   "dependencies": {
     "@mapbox/corslite": "0.0.7",
     "leaflet": "1.3.0",
-    "leaflet-control-geocoder": "^1.5.4",
-    "leaflet-geocoder-mapzen": "^1.9.4",
+    "leaflet-control-geocoder-tpp": "https://github.com/Rui-Santos/leaflet-control-geocoder-tpp",
+    "tpp-leaflet-geocoder": "git+https://github.com/Rui-Santos/tpp-leaflet-geocoder.git",
     "leaflet-routing-machine": "^3.2.7",
     "leaflet.locatecontrol": "^0.60.0",
-    "lrm-mapzen": "^1.3.5",
-    "mapzen-scarab": "git+https://github.com/hanbyul-here/scarab.git",
+    "tpp-lrm-valhalla": "git+https://github.com/Rui-Santos/tpp-lrm-valhalla.git",
+    "tpp-scarab": "git+https://github.com/Rui-Santos/tpp-scarab.git",
     "tangram": "^0.14.1"
   },
   "devDependencies": {
@@ -65,17 +65,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mapzen/mapzen.js.git"
+    "url": "git+https://github.com/Rui-Santos/tpp.js.git"
   },
-  "author": "MAPZEN",
+  "author": "TPP",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mapzen/mapzen.js/issues"
+    "url": "https://github.com/Rui-Santos/tpp.js/issues"
   },
   "homepage": "https://github.com/mapzen/mapzen.js",
   "keywords": [
     "map",
-    "mapzen",
-    "eraser map"
+    "tpp",
+    "portugal"
   ]
 }

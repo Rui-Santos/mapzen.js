@@ -10,7 +10,6 @@ var ErrorControl = require('leaflet-routing-machine/src/error-control');
 var GeocoderElement = require('leaflet-routing-machine/src/geocoder-element');
 var MapzenControlGeocoder = require('leaflet-control-geocoder-tpp/src/geocoders/nominatim');
 var MapzenRouter = require('tpp-lrm-valhalla/src/valhallaRouter');
-var APIKeyCheck = require('./apiKeyCheck');
 
 module.exports = {
   Control: Control,
@@ -55,17 +54,17 @@ module.exports.routing = {
   formatter: function (options) {
     return new MapzenFormatter(options);
   },
-  router: function (key, options) {
-    var params = APIKeyCheck.getKeyAndOptions(key, options);
-    return new MapzenRouter(params.key, params.options);
+  router: function (options) {
+    var params = options;
+    return new MapzenRouter(params.options);
   },
   geocoderElement: function (wp, i, nWps, plan) {
     return new GeocoderElement(wp, i, nWps, plan);
   },
 
   geocoder: function (key, options) {
-    var params = APIKeyCheck.getKeyAndOptions(key, options);
-    return new MapzenControlGeocoder.class(params.key, params.options); // eslint-disable-line
+    var params = options;
+    return new MapzenControlGeocoder.class(params.options); // eslint-disable-line
   },
 
   errorControl: function (routingControl, options) {
